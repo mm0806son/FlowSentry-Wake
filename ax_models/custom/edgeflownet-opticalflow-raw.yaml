@@ -1,0 +1,48 @@
+axelera-model-format: 1.0.0
+
+name: edgeflownet-opticalflow-raw
+
+description: EdgeFlowNet optical flow network for raw tensor output (no flow-image postprocess).
+
+pipeline:
+  - opticalflow:
+      model_name: edgeflownet
+      input:
+        type: image
+        color_format: RGB
+      preprocess:
+        - edgeflownet_pre:
+            width: 1024
+            height: 576
+      inference:
+        handle_all: true
+      postprocess:
+        - get-raw-tensor: {}
+
+operators:
+  edgeflownet_pre:
+    class: EdgeFlowNetPreprocess
+    class_path: edgeflownet_ops.py
+
+models:
+  edgeflownet:
+    class: EdgeFlowNetModel
+    class_path: edgeflownet_model.py
+    task_category: Classification
+    input_tensor_layout: NCHW
+    input_tensor_shape: [1, 6, 576, 1024]
+    input_color_format: RGB
+    weight_path: /home/orangepi/.cache/axelera/weights/edgeflownet/edgeflownet_576_1024.onnx
+    dataset: EdgeFlowNetCalibrationDataset
+    extra_kwargs:
+      compilation_config:
+        enable_icr: false
+        enable_swicr: false
+
+datasets:
+  EdgeFlowNetCalibrationDataset:
+    class: OpticalFlowDataAdapter
+    class_path: edgeflownet_model.py
+    data_dir_name: calib_merged
+    repr_imgs_dir_path: /home/orangepi/.cache/axelera/data/calib_merged
+    repr_imgs_dataloader_color_format: RGB

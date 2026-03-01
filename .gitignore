@@ -1,0 +1,114 @@
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.pytest_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+*.egg
+*.egg-info/
+.eggs/
+.installed.cfg
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.python-version
+
+# Virtual environments
+.env
+.venv
+venv
+venv/
+env/
+ENV/
+.env.local
+.env.*.local
+
+# Packaging / distribution
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+parts/
+sdist/
+var/
+wheels/
+
+# -----------------------------------------------------------------------------
+# Native / C++ (operators, customers)
+# -----------------------------------------------------------------------------
+*.o
+*.so
+*.a
+*.dylib
+*.dll
+*.exe
+
+# Axelera operators build & install
+operators/Release/
+operators/build/
+operators/bin/
+operators/lib/
+operators/onnxruntime/
+build_core1_defaulttile/
+
+# -----------------------------------------------------------------------------
+# IDE & editor
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.pyenv-version
+
+# -----------------------------------------------------------------------------
+# Notebooks & docs (optional)
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+
+# -----------------------------------------------------------------------------
+# Logs & runtime
+# -----------------------------------------------------------------------------
+*.log
+*.log.*
+deploy_debug.log
+core1_defaulttile.log
+
+# -----------------------------------------------------------------------------
+# Data, media & model artifacts (large / machine-specific)
+# -----------------------------------------------------------------------------
+data/
+data
+media/
+media
+artifacts/
+*.onnx
+*.tflite
+*.h5
+*.pt
+*.pth
+*.axnet
+*.bin
+!**/tests/**/*.bin
+*.mp4
+
+# -----------------------------------------------------------------------------
+# OS
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# Local agent bootstrap doc
+# AGENTS.md
+
+release/
