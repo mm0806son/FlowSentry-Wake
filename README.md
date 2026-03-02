@@ -90,6 +90,17 @@ python scripts/run_flowsentry_flow_probe.py --help
 python scripts/run_flowsentry_yolo_probe.py --help
 ```
 
+#### EdgeFlowNet 部署与量化校准
+
+在边缘设备（Metis NPU）上运行 EdgeFlowNet 之前，通常需要进行模型量化与部署准备：
+
+1. **校准数据集准备**：
+   项目根目录下提供了 `prepare_calib_data.py` 脚本。该脚本可将光流估计数据集转化成帧对的形式，用作部署时的校准集参考。
+   
+2. **完整部署流（主机端）**：
+  关于如何在主机上完成模型导出，请参考专用部署仓库：
+   [`https://github.com/linenmin/FlowSentry-Wake_EdgeFlowNet_Deployment`](https://github.com/linenmin/FlowSentry-Wake_EdgeFlowNet_Deployment)
+
 ### 快速开始
 
 先准备环境变量与输出目录：
@@ -305,6 +316,17 @@ python scripts/run_flowsentry_dual_probe.py --help
 python scripts/run_flowsentry_flow_probe.py --help
 python scripts/run_flowsentry_yolo_probe.py --help
 ```
+
+#### EdgeFlowNet Deployment & Calibration
+
+Before running EdgeFlowNet on an edge device (Metis NPU), model quantization and deployment preparation are typically required:
+
+1. **Calibration Dataset Preparation**:
+The `prepare_calib_data.py` script is provided in the repository root. It serves as a reference to convert optical flow datasets into frame-pair formats to be used as a calibration set for deployment.
+
+2. **Full Deployment Workflow (Host Side)**:
+For detailed instructions on model exporting and conversion on the host machine, please refer to the dedicated deployment repository:
+[`https://github.com/linenmin/FlowSentry-Wake_EdgeFlowNet_Deployment`](https://github.com/linenmin/FlowSentry-Wake_EdgeFlowNet_Deployment)
 
 ### Quick Start
 
